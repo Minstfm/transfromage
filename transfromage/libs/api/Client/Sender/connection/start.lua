@@ -7,6 +7,7 @@ local onSocketConnection = require("api/Client/Listener/_internal/socketConnecti
 ------------------------------------------- Optimization -------------------------------------------
 local coroutine_makef = coroutine.makef
 local enum_setting    = require("api/enum").setting
+local math_random     = math.random
 ----------------------------------------------------------------------------------------------------
 
 --[[@
@@ -22,7 +23,7 @@ Client.start = coroutine_makef(function(self)
 
 	getGameSettings(self)
 
-	self.mainConnection:connect(enum_setting.mainIP)
+	self.mainConnection:connect(enum_setting.mainIp[math_random(#enum_setting.mainIp)])
 
 	self.event:once("_socketConnection", onSocketConnection)
 
