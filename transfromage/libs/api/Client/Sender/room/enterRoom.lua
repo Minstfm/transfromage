@@ -12,10 +12,6 @@ local identifier = require("api/enum").identifier.room
 	@param isSalonAuto?<boolean> Whether the change room must be /salonauto or not. @default false
 ]]
 Client.enterRoom = function(self, roomName, roomPassword, isSalonAuto)
-	local roomType = ''
-	if roomName:sub(1) == '*' or roomName:sub(1) == '@' then
-		roomType = 'int'
-	end
 	self.mainConnection:send(identifier, ByteArray:new()
 		:writeUTF(roomType):writeUTF(roomName):writeUTF(roomPassword or ''):writeBool(isSalonAuto))
 end
