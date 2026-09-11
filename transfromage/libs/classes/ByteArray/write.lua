@@ -113,6 +113,48 @@ ByteArray.writeBool = function(self, bool)
 	return self:write8(bool and 1 or 0)
 end
 
+--[[@
+	@name writeULEB128
+	@desc Inserts an unsigned variable-length integer (ULEB128) into the byte array.
+	@param value<int> A positive integer.
+	@returns byteArray Object instance.
+]]
+byteArray.writeULEB128 = function(self, value)
+	while true do
+		local byte = bit_band(value, 0x7F)
+		value = bit_rshift(value, 7)
+		if value == 0 then
+			self:write8(byte)
+			break
+		else
+			self:write8(bit_bor(byte, 0x80))
+		end
+	end
+	return self
+end
+
+--[[@
+	@name writeSLEB128
+	@desc Inserts a signed variable-length integer (SLEB128) into the byte array.
+	@param value<int> A signed integer.
+	@returns byteArray Object instance.
+]]
+byteArray.writeSLEB128 = function(self, value)
+	local more = true
+	while more do
+		local byte = bit_band(value, 0x7F)
+		value = bit_arshift(value, 7) -- Usa desplazamiento aritmético para conservar el signo
+		
+		if (value == 0 and bit_band(byte, 0x40) == 0) or (value == -1 and bit_band(byte, 0x40) ~= 0) then
+			more = false
+		else
+			byte = bit_bor(byte, 0x80)
+		end
+		self:write8(byte)
+	end
+	return self
+end
+
 --------------------------------------- Deprecated / Aliases ---------------------------------------
 ByteArray.writeByte  = "write8"
 ByteArray.writeShort = "write16"
