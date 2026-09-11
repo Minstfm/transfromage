@@ -2,6 +2,7 @@ local ByteArray = require("./init")
 
 ------------------------------------------- Optimization -------------------------------------------
 local bit_rshift      = bit.rshift
+local bit_arshift     = bit.arshift
 local string_getBytes = string.getBytes
 local table_add       = table.add
 local type            = type
