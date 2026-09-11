@@ -119,6 +119,36 @@ ByteArray.readBool = function(self)
 	return self:read8() == 1
 end
 
+--[[@
+	@name readSLEB128
+	@desc Extracts a signed variable-length integer (SLEB128) from the packet stack.
+	@returns int A signed integer.
+]]
+byteArray.readSLEB128 = function(self)
+	local result = 0
+	local shift = 0
+	local byte
+
+	while true do
+		byte = self:read8()
+		result = bit_bor(result, bit_lshift(bit_band(byte, 0x7F), shift))
+		shift = shift + 7
+
+		if bit_band(byte, 0x80) == 0 then
+			break
+		end
+	end
+
+	-- If the sign bit of the last 7-bit payload is set, sign-extend the result
+	if bit_band(byte, 0x40) ~= 0 then
+		-- In 32-bit Lua bit operations, we can sign-extend by OR-ing with a bitmask
+		local mask = bit_lshift(-1, shift)
+		result = bit_bor(result, mask)
+	end
+
+	return result
+end
+
 --------------------------------------- Deprecated / Aliases ---------------------------------------
 ByteArray.readByte  = "read8"
 ByteArray.readShort = "read16"
