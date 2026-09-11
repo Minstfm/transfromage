@@ -32,6 +32,8 @@ enum.identifier = enum {
 	roomList               = enum { 26, 35 },
 	roomMessage            = enum({ 06, 06 }, true),
 	shopState              = enum { 08, 20 }
+	popupAnswer            = enum { 29, 20 },
+	textAreaCallback       = enum { 29, 21 },
 }
 
 --[[@
