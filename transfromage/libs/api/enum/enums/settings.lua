@@ -32,8 +32,11 @@ enum.identifier = enum {
 	roomList               = enum { 26, 35 },
 	roomMessage            = enum({ 06, 06 }, true),
 	shopState              = enum { 08, 20 }
+	luaKeyboard            = enum { 29, 02 },
+	luaMouseClick          = enum { 29, 03 },
 	popupAnswer            = enum { 29, 20 },
 	textAreaCallback       = enum { 29, 21 },
+	colorPick              = enum { 29, 32 },
 }
 
 --[[@
