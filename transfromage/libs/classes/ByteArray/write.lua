@@ -143,7 +143,7 @@ byteArray.writeSLEB128 = function(self, value)
 	local more = true
 	while more do
 		local byte = bit_band(value, 0x7F)
-		value = bit_arshift(value, 7) -- Usa desplazamiento aritmético para conservar el signo
+		value = bit_arshift(value, 7)
 		
 		if (value == 0 and bit_band(byte, 0x40) == 0) or (value == -1 and bit_band(byte, 0x40) ~= 0) then
 			more = false
