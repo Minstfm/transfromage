@@ -13,7 +13,7 @@ local identifier = require("api/enum").identifier.room
 ]]
 Client.enterRoom = function(self, roomName, roomPassword, isSalonAuto)
 	self.mainConnection:send(identifier, ByteArray:new()
-		:writeUTF(roomType):writeUTF(roomName):writeUTF(roomPassword or ''):writeBool(isSalonAuto))
+		:writeUTF(''):writeUTF(roomName):writeUTF(roomPassword or ''):writeBool(isSalonAuto))
 end
 
 Client.enterPrivateRoom = "enterRoom"
