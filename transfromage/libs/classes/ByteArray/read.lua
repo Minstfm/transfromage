@@ -149,6 +149,34 @@ byteArray.readSLEB128 = function(self)
 	return result
 end
 
+--[[@
+	@name readFloat
+	@desc Extracts a real number (32-bit IEEE 754 floating point) from the packet stack using pure Lua (Big Endian).
+	@returns number A standard Lua floating-point decimal ready for use.
+]]--
+byteArray.readFloat = function(self)
+	local bytes = self:read8(4)
+	local b1, b2, b3, b4 = bytes[1], bytes[2], bytes[3], bytes[4]
+	local sign = (b1 >= 128) and -1 or 1
+	local expo = bit_lshift(bit_band(b1, 127), 1) + bit_rshift(b2, 7)
+	local mant = bit_lshift(bit_band(b2, 127), 16) + bit_lshift(b3, 8) + b4
+	if expo == 0 then
+		if mant == 0 then
+			return 0.0 * sign
+		else
+			return sign * mant * 2^-149
+		end
+	elseif expo == 255 then
+		if mant == 0 then
+			return sign * (1 / 0)
+		else
+			return 0 / 0
+		end
+	end
+
+	return sign * (1 + mant / 8388608) * 2^(expo - 127)
+end
+
 --------------------------------------- Deprecated / Aliases ---------------------------------------
 ByteArray.readByte  = "read8"
 ByteArray.readShort = "read16"
