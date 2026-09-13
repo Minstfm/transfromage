@@ -37,6 +37,8 @@ enum.identifier = enum {
 	popupAnswer            = enum { 29, 20 },
 	textAreaCallback       = enum { 29, 21 },
 	colorPick              = enum { 29, 32 },
+	luaContactListener     = enum { 149, 19 },
+	luaInteractNPC         = enum { 149, 20 }
 }
 
 --[[@
