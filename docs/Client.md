@@ -473,6 +473,62 @@
 >![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
 >
 ---
+>### client:setNewRank ( rankName )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| rankName | `string` | ✔ | Rank name to be added. |
+>
+>Makes a new rank.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
+>### client:setDeleteRank ( rankID )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| rankID | `int` | ✔ | Rank id to be removed. |
+>
+>Remove a rank.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
+>### client:setRenameRank ( rankID, rankName )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| rankID | `int` | ✔ | The rank id. |
+>| rankName | `string` | ✔ | The new rank name. |
+>
+>Rename the rank.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
+>### client:changeRankOrder ( rankUp, rankDown )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| rankUp | `int` | ✔ | Rank id that will receive new position. |
+>| rankDown | `int` | ✔ | Rank id that will receive current position. |
+>
+>Swap rank position with another rank.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
+>### client:setSpiritualChief ( memberName )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| memberName | `string` | ✔ | Name of the member to get spiritual chief. |
+>
+> Give spiritual chief to a member.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
+>### client:changeTribeMap ( tribeMap )
+>| Parameter | Type | Required | Description |
+>| :-: | :-: | :-: | - |
+>| tribeMap | `int` | ✔ | The map id to be set. |
+>
+> Changes the map of the tribe.<br>
+>![/!\\](https://i.imgur.com/HQ188PK.png) Note that this method will not cover errors if the account is not in a tribe or do not have permissions.
+>
+---
 >### client:start ( tfmId, token )
 >| Parameter | Type | Required | Description |
 >| :-: | :-: | :-: | - |
