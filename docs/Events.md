@@ -1013,6 +1013,15 @@ end)
 >```
 >
 ---
+>### tribeChangeMOTD ( memberName, tribeNewMOTD )
+>| Parameter | Type | Description |
+>| :-: | :-: | - |
+>| memberName | `string` | The member who changed MOTD. |
+>| tribeNewMOTD | `string` | The new tribe MOTD. |
+>
+>Triggered when a member changes the MOTD.
+>
+---
 >### tribeHouseInvitation ( inviterName, inviterTribe )
 >| Parameter | Type | Description |
 >| :-: | :-: | - |
