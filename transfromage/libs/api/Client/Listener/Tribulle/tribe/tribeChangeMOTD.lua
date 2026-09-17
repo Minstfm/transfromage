@@ -9,7 +9,7 @@ local onTribeChangeMOTD = function(self, packet, connection, tribulleId)
 	--[[@
 		@name tribeChangeMOTD
 		@desc Triggered when a member changes the MOTD.
-		@param memberName<string> The member who left the tribe.
+		@param memberName<string> The member who changed MOTD.
 		@param tribeNewMOTD<string> The new tribe MOTD.
 	]]
 	self.event:emit("tribeChangeMOTD", string_toNickname(memberName, true), tribeNewMOTD)
