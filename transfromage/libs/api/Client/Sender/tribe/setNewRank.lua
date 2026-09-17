@@ -9,5 +9,5 @@ local ByteArray = require("classes/ByteArray")
 	@param rankName<string> Rank name to be added.
 ]]
 Client.setNewRank = function(self, rankName)
-	self:sendTribulle(ByteArray:new():write16(118):write8(6):writeUTF(rankName))
+	self:sendTribulle(ByteArray:new():write16(118):write32(6):writeUTF(rankName))
 end
