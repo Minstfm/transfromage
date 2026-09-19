@@ -19,4 +19,4 @@ local onFriendListLoaded = function(self, packet, connection, tribulleId)
 	self.event:emit("friendFieldChange", friendPlayer)
 end
 
-return { onfriendFieldChange, 35 }
+return { onFriendFieldChange, 35 }
