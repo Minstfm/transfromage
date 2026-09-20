@@ -294,6 +294,14 @@ end)
 >```
 >
 ---
+>### friendFieldChange ( memberName, tribeNewMOTD )
+>| Parameter | Type | Description |
+>| :-: | :-: | - |
+>| friendPlayer | `table` | The data of the friend. |
+>
+>Triggered when the friend changes any field.
+>
+---
 >### heartbeat ( time )
 >| Parameter | Type | Description |
 >| :-: | :-: | - |
