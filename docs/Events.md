@@ -301,6 +301,19 @@ end)
 >
 >Triggered when the friend changes any field.
 >
+>**@friendPlayer structure**:
+>```Lua
+>{
+>	id = 0, -- The player id.
+>	playerName = "", -- The friendPlayer's name.
+>	gender = 0, -- The friendPlayer's gender. Enum in enum.gender.
+>	isFriend = true, -- Whether the friendPlayer has the account as a friend (added back) or not.
+>	isConnected = true, -- Whether the friendPlayer is online or offline.
+>	gameId = 0, -- The id of the game where the friendPlayer is connected. Enum in enum.game.
+>	roomName = "", -- The name of the room the friendPlayer is in.
+>	lastConnection = 0 -- Timestamp of when the friendPlayer was last online.
+>}
+>```
 ---
 >### heartbeat ( time )
 >| Parameter | Type | Description |
